@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Main Content Styles */
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding-top: 100px; /* Add padding to push content down below the fixed header */
+            padding-bottom: 70px; /* Add padding to account for bottom navigation */
+        }
+
+        .main-content .photo-item {
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-item .photo-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 5px; /* Adjust margin as needed */
+        }
+
+        .photo-item .photo-intro {
+            font-size: 12px;
+            margin-bottom: 10px; /* Adjust margin as needed */
+        }
+
+        .photo-item .photo-link {
+            font-size: 12px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #f00;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed; /* Fix the header position */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999; /* Ensure the header is displayed above other elements */
+        }
+
+        /* Bottom Navigation Styles */
+        .bottom-navigation {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            position: fixed; /* Fix the bottom navigation position */
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .bottom-navigation a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        /* Floating Action Button Styles */
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #f00;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 24px;
+            text-align: center;
+            line-height: 60px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 999; /* Ensure the FAB is displayed above other elements */
+        }
+
+        /* Chatbot Styles */
+        .chatbot-window {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: none; /* Hide the chatbot window by default */
+            z-index: 999; /* Ensure the chatbot window is displayed above other elements */
+        }
+
+        .chatbot-header {
+            background-color: #f00;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .chatbot-content {
+            padding: 20px;
+        }
+
+        .chatbot-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>My Photo Gallery</h1>
+    </div>
+
+    <div class="main-content">
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <!-- Add more photo items as needed -->
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+        <div class="photo-item">
+            <img src="https://th.bing.com/th/id/OIP.yA-HyuLpF2lnr2EPNKufSAHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt="Photo 1">
+            <h2 class="photo-title">Photo 1</h2>
+            <p class="photo-intro">Short introduction to Photo 1</p>
+            <a href="#" class="photo-link">View more</a>
+        </div>
+
+    </div>
+
+    <div class="bottom-navigation">
+        <a href="#" class="btn">Home</a>
+        <a href="#" class="btn">Photos</a>
+        <a href="#" class="btn">About</a>
+        <a href="#" class="btn">Contact</a>
+    </div>
+
+    <div class="fab" id="chatbot-toggle">+</div>
+
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <h2>Chatbot</h2>
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets2.lottiefiles.com/packages/lf20_sqwEc44qxw.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" hover loop  autoplay></lottie-player>
+ <button onclick="window.location.href='https://project099912.w3spaces.com/index.html#';">
+      Click Here
+    </button>
+
+            <div class="chatbot-close" id="chatbot-close">&times;</div>
+        </div>
+        <div class="chatbot-content">
+            <!-- Add chatbot content here -->
+
+        </div>
+    </div>
+
+    <script>
+        // Toggle chatbot window visibility
+        var chatbotToggle = document.getElementById('chatbot-toggle');
+        var chatbotWindow = document.getElementById('chatbot-window');
+        var chatbotClose = document.getElementById('chatbot-close');
+
+        chatbotToggle.addEventListener('click', function() {
+            chatbotWindow.style.display = 'block';
+        });
+
+        chatbotClose.addEventListener('click', function() {
+            chatbotWindow.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
